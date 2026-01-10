@@ -1,0 +1,352 @@
+[
+  {
+    "url": "https://www.nature.com/articles/s41586-021-03819-2",
+    "title": "Highly accurate protein structure prediction with AlphaFold",
+    "abstract": "Proteins are essential to life, and understanding their structure can facilitate a mechanistic understanding of their function. Through an enormous experimental effort, the structures of around 100,000 unique proteins have been determined, but this represents a small fraction of the billions of known protein sequences. Structural coverage is bottlenecked by the months to years of painstaking effort required to determine a single protein structure. Accurate computational approaches are needed to address this gap and to enable large-scale structural bioinformatics. Here we show that AlphaFold can predict protein structures with atomic accuracy even when no similar structure is known.",
+    "domain": "nature.com",
+    "credibility_score": 95
+  },
+  {
+    "url": "https://arxiv.org/abs/1706.03762",
+    "title": "Attention Is All You Need",
+    "abstract": "The dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely.",
+    "domain": "arxiv.org",
+    "credibility_score": 90
+  },
+  {
+    "url": "https://www.science.org/doi/10.1126/science.aav2294",
+    "title": "Climate change and the selective signature of the Late Ordovician mass extinction",
+    "abstract": "Mass extinctions have profoundly influenced the history of life, but their selectivity patterns and causes remain controversial. We analyzed Late Ordovician fossil occurrences to assess which factors best predict genus extinction.",
+    "domain": "science.org",
+    "credibility_score": 95
+  },
+  {
+    "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2034577",
+    "title": "Safety and Efficacy of the BNT162b2 mRNA Covid-19 Vaccine",
+    "abstract": "Severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) infection and the resulting coronavirus disease 2019 (Covid-19) have afflicted tens of millions of people in a worldwide pandemic. Safe and effective vaccines are needed urgently.",
+    "domain": "nejm.org",
+    "credibility_score": 98
+  },
+  {
+    "url": "https://www.cell.com/cell/fulltext/S0092-8674(19)30559-4",
+    "title": "CRISPR-Cas9 gene editing in human embryos",
+    "abstract": "CRISPR-Cas9 is a revolutionary gene-editing tool that has transformed biological research and holds promise for treating genetic diseases. This study explores its application in human embryos.",
+    "domain": "cell.com",
+    "credibility_score": 92
+  },
+  {
+    "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0234215",
+    "title": "Machine learning approaches for predicting protein-protein interactions",
+    "abstract": "Protein-protein interactions (PPIs) are fundamental to virtually every biological process. Computational prediction of PPIs can guide experimental studies and provide insights into cellular mechanisms.",
+    "domain": "plos.org",
+    "credibility_score": 85
+  },
+  {
+    "url": "https://www.pnas.org/doi/10.1073/pnas.2014841118",
+    "title": "Quantum supremacy using a programmable superconducting processor",
+    "abstract": "The promise of quantum computers is that certain computational tasks might be executed exponentially faster on a quantum processor than on a classical processor.",
+    "domain": "pnas.org",
+    "credibility_score": 93
+  },
+  {
+    "url": "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)32623-4/fulltext",
+    "title": "Global burden of cardiovascular diseases and risk factors",
+    "abstract": "Cardiovascular diseases remain the leading cause of death globally. Understanding trends in cardiovascular disease burden and risk factors is essential for policy making.",
+    "domain": "thelancet.com",
+    "credibility_score": 96
+  },
+  {
+    "url": "https://www.nature.com/articles/s41586-020-2649-2",
+    "title": "Room-temperature superconductivity in a carbonaceous sulfur hydride",
+    "abstract": "The discovery of superconductivity at high pressure in hydrides has transformed the landscape of superconductivity research. Here we report superconductivity at 15°C in a carbonaceous sulfur hydride.",
+    "domain": "nature.com",
+    "credibility_score": 94
+  },
+  {
+    "url": "https://academic.oup.com/bioinformatics/article/36/4/1234/5556254",
+    "title": "Deep learning for genomics: A comprehensive review",
+    "abstract": "Deep learning has emerged as a powerful tool for analyzing genomic data. This review discusses recent advances in applying deep neural networks to genomic problems.",
+    "domain": "academic.oup.com",
+    "credibility_score": 88
+  },
+  {
+    "url": "https://www.sciencedirect.com/science/article/pii/S0140673620301835",
+    "title": "Mental health and COVID-19: Global perspectives",
+    "abstract": "The COVID-19 pandemic has had profound effects on mental health worldwide. This study examines the psychological impact and strategies for mitigation.",
+    "domain": "sciencedirect.com",
+    "credibility_score": 89
+  },
+  {
+    "url": "https://www.jneurosci.org/content/40/8/1615",
+    "title": "Neuroplasticity and brain-computer interfaces",
+    "abstract": "Brain-computer interfaces leverage neuroplasticity to enable direct communication between the brain and external devices, with applications in rehabilitation and assistive technology.",
+    "domain": "jneurosci.org",
+    "credibility_score": 91
+  },
+  {
+    "url": "https://ieeexplore.ieee.org/document/9123456",
+    "title": "Federated learning for privacy-preserving machine learning",
+    "abstract": "Federated learning enables training machine learning models across decentralized devices while keeping data localized, addressing privacy concerns in the era of big data.",
+    "domain": "ieeexplore.ieee.org",
+    "credibility_score": 87
+  },
+  {
+    "url": "https://www.ams.org/journals/bull/2020-57-04/S0273-0979-2020-01685-9/",
+    "title": "Recent developments in algebraic topology",
+    "abstract": "This survey covers recent advances in algebraic topology, including applications to data science and topological data analysis.",
+    "domain": "ams.org",
+    "credibility_score": 90
+  },
+  {
+    "url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.140502",
+    "title": "Quantum error correction and fault-tolerant quantum computing",
+    "abstract": "Quantum error correction is essential for building reliable quantum computers. This paper presents new protocols for fault-tolerant quantum computation.",
+    "domain": "journals.aps.org",
+    "credibility_score": 92
+  },
+  {
+    "url": "https://www.annualreviews.org/doi/10.1146/annurev-genom-083118-015053",
+    "title": "Single-cell genomics: technological advances and biological insights",
+    "abstract": "Single-cell genomics has revolutionized our understanding of cellular heterogeneity. This review highlights technological innovations and biological discoveries.",
+    "domain": "annualreviews.org",
+    "credibility_score": 93
+  },
+  {
+    "url": "https://www.sciencemag.org/lookup/doi/10.1126/science.abc4730",
+    "title": "Climate tipping points and irreversible changes",
+    "abstract": "Climate tipping points represent thresholds beyond which systems may transition to different states. Understanding these is critical for climate policy.",
+    "domain": "sciencemag.org",
+    "credibility_score": 95
+  },
+  {
+    "url": "https://www.nature.com/articles/s41586-019-1666-5",
+    "title": "Light-driven carbon dioxide reduction with artificial photosynthesis",
+    "abstract": "Artificial photosynthesis offers a sustainable approach to converting CO2 into fuels and chemicals using sunlight, mimicking natural photosynthetic processes.",
+    "domain": "nature.com",
+    "credibility_score": 91
+  },
+  {
+    "url": "https://academic.oup.com/nar/article/49/D1/D1388/5990278",
+    "title": "Database resources for biological research in 2021",
+    "abstract": "This article surveys major biological databases and their recent updates, providing researchers with essential resources for genomic and proteomic studies.",
+    "domain": "academic.oup.com",
+    "credibility_score": 86
+  },
+  {
+    "url": "https://www.pnas.org/doi/10.1073/pnas.2024989118",
+    "title": "Neural correlates of consciousness: Current theories and evidence",
+    "abstract": "Understanding the neural basis of consciousness remains one of neuroscience's greatest challenges. This review examines leading theories and experimental evidence.",
+    "domain": "pnas.org",
+    "credibility_score": 90
+  },
+  {
+    "url": "https://journals.sagepub.com/doi/10.1177/0956797620939054",
+    "title": "Social media and mental health in adolescents",
+    "abstract": "The relationship between social media use and adolescent mental health is complex. This longitudinal study examines causal pathways and protective factors.",
+    "domain": "journals.sagepub.com",
+    "credibility_score": 84
+  },
+  {
+    "url": "https://www.cambridge.org/core/journals/political-analysis/article/machine-learning-for-causal-inference/",
+    "title": "Machine learning methods for causal inference in social sciences",
+    "abstract": "Machine learning offers powerful tools for causal inference, but requires careful application. This paper provides guidance for social science researchers.",
+    "domain": "cambridge.org",
+    "credibility_score": 87
+  },
+  {
+    "url": "https://www.annualreviews.org/doi/10.1146/annurev-statistics-031219-041110",
+    "title": "Interpretable machine learning: definitions, methods, and applications",
+    "abstract": "As machine learning systems are deployed in high-stakes domains, interpretability becomes crucial. This review covers methods for making ML models interpretable.",
+    "domain": "annualreviews.org",
+    "credibility_score": 89
+  },
+  {
+    "url": "https://www.cell.com/molecular-cell/fulltext/S1097-2765(20)30758-1",
+    "title": "RNA modifications and their role in gene expression",
+    "abstract": "Post-transcriptional RNA modifications regulate gene expression through diverse mechanisms. This review covers recent discoveries in epitranscriptomics.",
+    "domain": "cell.com",
+    "credibility_score": 92
+  },
+  {
+    "url": "https://iopscience.iop.org/article/10.3847/1538-4357/abc123",
+    "title": "Detection of gravitational waves from neutron star mergers",
+    "abstract": "Gravitational wave astronomy has opened a new window on the universe. This paper reports observations of neutron star mergers and their electromagnetic counterparts.",
+    "domain": "iopscience.iop.org",
+    "credibility_score": 93
+  },
+  {
+    "url": "https://www.frontiersin.org/articles/10.3389/fpsyg.2020.01234/full",
+    "title": "Cognitive biases in decision making: A systematic review",
+    "abstract": "Cognitive biases systematically influence human judgment and decision making. This review synthesizes findings across domains and proposes interventions.",
+    "domain": "frontiersin.org",
+    "credibility_score": 82
+  },
+  {
+    "url": "https://www.nature.com/articles/s41467-020-18964-x",
+    "title": "Biodiversity loss and ecosystem functioning",
+    "abstract": "Biodiversity is declining at unprecedented rates globally. This meta-analysis examines how species loss affects ecosystem services and resilience.",
+    "domain": "nature.com",
+    "credibility_score": 90
+  },
+  {
+    "url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3000410",
+    "title": "Open science practices and reproducibility in research",
+    "abstract": "Reproducibility is fundamental to scientific progress. This study evaluates the adoption of open science practices across disciplines.",
+    "domain": "plos.org",
+    "credibility_score": 88
+  },
+  {
+    "url": "https://www.thelancet.com/journals/lanpub/article/PIIS2468-2667(20)30133-X/fulltext",
+    "title": "Global health equity and access to healthcare",
+    "abstract": "Health inequities persist both within and between countries. This analysis examines barriers to healthcare access and policy solutions.",
+    "domain": "thelancet.com",
+    "credibility_score": 91
+  },
+  {
+    "url": "https://www.science.org/doi/10.1126/science.aba3996",
+    "title": "Microplastics in the environment: sources, fate, and impacts",
+    "abstract": "Microplastics contamination is a growing environmental concern. This review synthesizes current knowledge on sources, distribution, and ecological effects.",
+    "domain": "science.org",
+    "credibility_score": 89
+  },
+  {
+    "url": "https://academic.oup.com/bib/article/21/3/1345/5678910",
+    "title": "Network analysis in systems biology",
+    "abstract": "Network approaches provide powerful frameworks for understanding biological systems. This review covers methods and applications in systems biology.",
+    "domain": "academic.oup.com",
+    "credibility_score": 85
+  },
+  {
+    "url": "https://www.nature.com/articles/s41586-021-03207-w",
+    "title": "Ancient DNA reveals human migration patterns",
+    "abstract": "Ancient DNA analysis has revolutionized our understanding of human prehistory. This study traces migration patterns across continents over millennia.",
+    "domain": "nature.com",
+    "credibility_score": 92
+  },
+  {
+    "url": "https://www.cell.com/immunity/fulltext/S1074-7613(20)30456-2",
+    "title": "Immunology of COVID-19: Current understanding and questions",
+    "abstract": "Understanding immune responses to SARS-CoV-2 is critical for developing vaccines and therapeutics. This review summarizes current knowledge.",
+    "domain": "cell.com",
+    "credibility_score": 94
+  },
+  {
+    "url": "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.10.041004",
+    "title": "Topological quantum materials and their applications",
+    "abstract": "Topological materials exhibit exotic properties protected by topology. This review discusses recent discoveries and potential applications in quantum technologies.",
+    "domain": "journals.aps.org",
+    "credibility_score": 90
+  },
+  {
+    "url": "https://www.annualreviews.org/doi/10.1146/annurev-psych-010419-050916",
+    "title": "The science of behavior change: challenges and opportunities",
+    "abstract": "Changing human behavior is central to addressing many societal challenges. This review examines effective interventions based on psychological science.",
+    "domain": "annualreviews.org",
+    "credibility_score": 86
+  },
+  {
+    "url": "https://www.pnas.org/doi/10.1073/pnas.2019268118",
+    "title": "Artificial intelligence in drug discovery",
+    "abstract": "AI is transforming pharmaceutical research by accelerating drug discovery and development. This perspective discusses opportunities and challenges.",
+    "domain": "pnas.org",
+    "credibility_score": 88
+  },
+  {
+    "url": "https://www.nature.com/articles/s41578-020-00264-0",
+    "title": "Sustainable materials for a circular economy",
+    "abstract": "Transitioning to a circular economy requires developing sustainable materials that can be recycled or biodegraded. This review examines promising approaches.",
+    "domain": "nature.com",
+    "credibility_score": 87
+  },
+  {
+    "url": "https://www.sciencedirect.com/science/article/pii/S0360128520301234",
+    "title": "Urban planning and climate adaptation strategies",
+    "abstract": "Cities face increasing climate risks. This study examines urban planning strategies for building resilience and adapting to climate change.",
+    "domain": "sciencedirect.com",
+    "credibility_score": 83
+  },
+  {
+    "url": "https://academic.oup.com/jxb/article/71/10/2900/5812345",
+    "title": "Plant responses to drought stress: molecular mechanisms",
+    "abstract": "Drought is a major constraint on crop productivity. Understanding plant stress responses at molecular level can guide breeding for drought tolerance.",
+    "domain": "academic.oup.com",
+    "credibility_score": 85
+  },
+  {
+    "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2107659",
+    "title": "Long-term outcomes of COVID-19 survivors",
+    "abstract": "Many COVID-19 survivors experience persistent symptoms. This cohort study examines long-term health outcomes and identifies risk factors.",
+    "domain": "nejm.org",
+    "credibility_score": 96
+  },
+  {
+    "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008567",
+    "title": "Computational modeling of infectious disease spread",
+    "abstract": "Mathematical models are essential tools for understanding and controlling infectious diseases. This review covers recent advances in epidemic modeling.",
+    "domain": "plos.org",
+    "credibility_score": 86
+  },
+  {
+    "url": "https://www.nature.com/articles/s41593-020-00726-z",
+    "title": "Neural basis of learning and memory consolidation",
+    "abstract": "Memory consolidation involves complex neural processes that stabilize learned information. This review synthesizes findings from systems neuroscience.",
+    "domain": "nature.com",
+    "credibility_score": 91
+  },
+  {
+    "url": "https://www.science.org/doi/10.1126/science.abb2507",
+    "title": "Renewable energy transitions: technological and policy perspectives",
+    "abstract": "Transitioning to renewable energy is critical for climate mitigation. This analysis examines technological advances and policy frameworks.",
+    "domain": "science.org",
+    "credibility_score": 88
+  },
+  {
+    "url": "https://www.cell.com/cell-metabolism/fulltext/S1550-4131(20)30567-8",
+    "title": "Metabolic regulation of immune cell function",
+    "abstract": "Cellular metabolism shapes immune responses. This review discusses how metabolic pathways regulate immune cell differentiation and function.",
+    "domain": "cell.com",
+    "credibility_score": 90
+  },
+  {
+    "url": "https://ieeexplore.ieee.org/document/9234567",
+    "title": "Explainable AI: methods and applications",
+    "abstract": "As AI systems become more complex, explainability is crucial for trust and accountability. This paper surveys methods for making AI decisions transparent.",
+    "domain": "ieeexplore.ieee.org",
+    "credibility_score": 85
+  },
+  {
+    "url": "https://www.annualreviews.org/doi/10.1146/annurev-earth-082420-063026",
+    "title": "Earth system modeling and climate prediction",
+    "abstract": "Earth system models integrate physical, chemical, and biological processes to project future climate. This review examines recent advances and uncertainties.",
+    "domain": "annualreviews.org",
+    "credibility_score": 89
+  },
+  {
+    "url": "https://journals.sagepub.com/doi/10.1177/0963721420949806",
+    "title": "Psychological resilience: mechanisms and interventions",
+    "abstract": "Resilience enables individuals to adapt to adversity. This review examines psychological and neurobiological mechanisms underlying resilience.",
+    "domain": "journals.sagepub.com",
+    "credibility_score": 84
+  },
+  {
+    "url": "https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/cultural-evolution/",
+    "title": "Cultural evolution and human behavior",
+    "abstract": "Cultural evolution shapes human societies through transmission and modification of behaviors. This paper presents an integrative theoretical framework.",
+    "domain": "cambridge.org",
+    "credibility_score": 86
+  },
+  {
+    "url": "https://www.pnas.org/doi/10.1073/pnas.2018303118",
+    "title": "Synthetic biology for sustainable production",
+    "abstract": "Synthetic biology enables engineering organisms for sustainable production of chemicals, fuels, and materials. This perspective discusses opportunities.",
+    "domain": "pnas.org",
+    "credibility_score": 87
+  },
+  {
+    "url": "https://www.nature.com/articles/s41588-021-00819-w",
+    "title": "Genomic medicine: from research to clinical practice",
+    "abstract": "Genomic technologies are transforming medicine. This review examines progress in translating genomic discoveries into clinical applications.",
+    "domain": "nature.com",
+    "credibility_score": 93
+  }
+]
