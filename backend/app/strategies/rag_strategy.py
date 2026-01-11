@@ -89,6 +89,8 @@ class RAGAnalysisStrategy(AnalysisStrategy):
             }
         
         except Exception as e:
+            self.db.rollback()
+            
             # If RAG search fails, return default score
             return {
                 "score": 5,
@@ -103,6 +105,22 @@ class RAGAnalysisStrategy(AnalysisStrategy):
             }
     
     def _prepare_query_text(self, reference: Reference) -> str:
+        parts = []
+
+        if reference.title:
+            parts.append(reference.title)
+
+        # If your Reference model has any summary/description field, use it
+        if hasattr(reference, "abstract") and reference.abstract:
+            parts.append(reference.abstract)
+
+        # Fallback: if no abstract, use URL-derived hints
+        if len(parts) == 1 and reference.url:
+            slug = reference.url.split("/")[-1]
+            slug = slug.replace("-", " ").replace("_", " ")
+            parts.append(slug)
+
+        return ". ".join(parts)
         """
         Prepare text for RAG similarity search.
         

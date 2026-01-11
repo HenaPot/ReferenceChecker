@@ -5,7 +5,7 @@ import json
 from sqlalchemy.orm import Session
 from sqlalchemy import text
 from sentence_transformers import SentenceTransformer
-
+from sqlalchemy import select
 from app.models import RAGSource
 from app.config import settings
 
@@ -59,59 +59,39 @@ class RAGService:
         """
         # Generate embedding for query
         query_embedding = self.model.encode(query_text).tolist()
-        
-        # Convert to string format for SQL (stored as string in our schema)
-        query_embedding_str = json.dumps(query_embedding)
-        
-        # Use raw SQL for vector similarity search
-        # Note: We're using string comparison since we stored as string
-        # This is a simplified approach - in production, use proper vector types
-        sql = text("""
-            SELECT 
-                source_id,
-                url,
-                title,
-                content_text,
-                domain,
-                credibility_score,
-                embedding_vector,
-                1.0 as similarity  -- Placeholder since we're not doing real cosine similarity with string storage
-            FROM rag_sources
-            WHERE embedding_vector IS NOT NULL
-            LIMIT :top_k
-        """)
-        
-        result = self.db.execute(sql, {"top_k": top_k})
-        rows = result.fetchall()
-        
-        # Calculate actual similarity in Python
-        # (This is a workaround for string storage - in production, use pgvector)
+
+        stmt = (
+            select(
+                RAGSource.source_id,
+                RAGSource.url,
+                RAGSource.title,
+                RAGSource.content_text,
+                RAGSource.domain,
+                RAGSource.credibility_score,
+                (1 - RAGSource.embedding_vector.cosine_distance(query_embedding)).label("similarity"),
+            )
+            .where(RAGSource.embedding_vector.isnot(None))
+            .order_by(RAGSource.embedding_vector.cosine_distance(query_embedding))
+            .limit(top_k)
+        )
+
+        rows = self.db.execute(stmt).all()
+
         similar_sources = []
         for row in rows:
-            try:
-                # Parse stored embedding
-                stored_embedding = json.loads(row.embedding_vector)
-                
-                # Calculate cosine similarity
-                similarity = self._cosine_similarity(query_embedding, stored_embedding)
-                
-                if similarity >= min_similarity:
-                    similar_sources.append({
-                        "source_id": str(row.source_id),
-                        "url": row.url,
-                        "title": row.title,
-                        "content_text": row.content_text[:200] + "..." if row.content_text else None,
-                        "domain": row.domain,
-                        "credibility_score": row.credibility_score,
-                        "similarity": round(similarity, 3)
-                    })
-            except (json.JSONDecodeError, TypeError):
-                # Skip sources with invalid embeddings
-                continue
-        
-        # Sort by similarity (highest first) and return top_k
-        similar_sources.sort(key=lambda x: x["similarity"], reverse=True)
-        return similar_sources[:top_k]
+            if row.similarity >= min_similarity:
+                similar_sources.append({
+                    "source_id": str(row.source_id),
+                    "url": row.url,
+                    "title": row.title,
+                    "content_text": row.content_text[:200] + "..." if row.content_text else None,
+                    "domain": row.domain,
+                    "credibility_score": row.credibility_score,
+                    "similarity": round(float(row.similarity), 3),
+                })
+
+        return similar_sources
+
     
     def _cosine_similarity(self, vec1: List[float], vec2: List[float]) -> float:
         """
