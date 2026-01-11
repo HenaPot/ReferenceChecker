@@ -60,11 +60,21 @@ async def login(user_data: UserLogin, db: Session = Depends(get_db)):
     # Update last login
     user.last_login = datetime.utcnow()
     db.commit()
+    db.refresh(user)
     
     # Create access token
     access_token = create_access_token(data={"sub": str(user.user_id)})
     
-    return {"access_token": access_token, "token_type": "bearer"}
+    return {
+        "access_token": access_token,
+        "token_type": "bearer",
+        "user": {
+            "user_id": user.user_id,
+            "email": user.email,
+            "created_at": user.created_at,
+            "last_login": user.last_login
+        }
+    }
 
 
 @router.get("/me", response_model=UserResponse)

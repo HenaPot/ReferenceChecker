@@ -35,7 +35,24 @@ export default function LandingPage() {
     if (result.success) {
       navigate('/check');
     } else {
-      setError(result.error);
+      let errorMessage = 'An error occurred';
+      
+      if (typeof result.error === 'string') {
+        errorMessage = result.error;
+      } else if (result.error?.message) {
+        errorMessage = result.error.message;
+      } else if (result.error?.detail) {
+        if (typeof result.error.detail === 'string') {
+          errorMessage = result.error.detail;
+        } else if (Array.isArray(result.error.detail)) {
+          const firstError = result.error.detail[0];
+          errorMessage = firstError?.msg || 'Validation error';
+        } else if (typeof result.error.detail === 'object') {
+          errorMessage = JSON.stringify(result.error.detail);
+        }
+      }
+      
+      setError(errorMessage);
     }
   };
 
