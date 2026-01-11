@@ -20,9 +20,8 @@ class Settings(BaseSettings):
     EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
     
     # N8N Webhooks
-    N8N_WEBHOOK_BASE_URL: str = ""
+    N8N_WEBHOOK_BASE_URL: str 
     N8N_REFERENCE_WEBHOOK: str = "/webhook/reference-check"
-    N8N_ALERT_WEBHOOK: str = "/webhook/low-credibility-alert"
     
     # Application
     ENVIRONMENT: str = "development"

@@ -12,6 +12,7 @@ from app.schemas.reference import ReferenceCreate, ReferenceResponse, ReferenceD
 from app.utils.security import get_current_user
 from app.services.reference_service import ReferenceService
 from app.services.credibility_analyzer import CredibilityAnalyzer
+from app.services.n8n_service import N8NService
 
 router = APIRouter()
 
@@ -34,7 +35,27 @@ async def run_credibility_analysis(reference_id: UUID, db: Session):
         
         # Run credibility analysis
         analyzer = CredibilityAnalyzer(db)
-        await analyzer.analyze_reference(reference)
+        report = await analyzer.analyze_reference(reference)
+        
+        try:
+            n8n_service = N8NService()
+            await n8n_service.send_reference_analyzed(
+                reference_id=str(reference.reference_id),
+                url=reference.url,
+                title=reference.title,
+                author=reference.author,
+                domain=reference.domain,
+                credibility_score=report.total_score,
+                breakdown={
+                    "domain_score": report.domain_score,
+                    "metadata_score": report.metadata_score,
+                    "rag_score": report.rag_score,
+                    "ai_score": report.ai_score
+                }
+            )
+        except Exception as n8n_error:
+            # Don't fail analysis if N8N webhook fails
+            print(f"⚠️  N8N webhook failed (analysis still succeeded): {n8n_error}")
         
     except Exception as e:
         # If analysis fails, update reference status
@@ -43,12 +64,11 @@ async def run_credibility_analysis(reference_id: UUID, db: Session):
         ).first()
         
         if reference:
-            # FIXED: Use the correct enum value
             reference.status = ReferenceStatus.failed
             db.commit()
         
-        # Log error (you can add proper logging here)
-        print(f"Credibility analysis failed for {reference_id}: {str(e)}")
+        # Log error
+        print(f"❌ Credibility analysis failed for {reference_id}: {str(e)}")
         import traceback
         traceback.print_exc()
 
@@ -63,6 +83,7 @@ async def check_reference(
     """
     Submit a reference for credibility checking.
     Returns immediately with status 'processing'.
+    Analysis happens in background + sends to N8N.
     """
     service = ReferenceService(db)
     reference = await service.create_reference(reference_data.url, current_user.user_id)
@@ -145,7 +166,6 @@ async def reanalyze_reference(
     reference.status = ReferenceStatus.processing
     db.commit()
     
-    # Trigger background analysis
     background_tasks.add_task(
         run_credibility_analysis,
         reference.reference_id,
