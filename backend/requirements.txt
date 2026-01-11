@@ -1,4 +1,5 @@
 --find-links wheels
+--extra-index-url https://download.pytorch.org/whl/cpu
 alembic==1.12.1
 annotated-doc==0.0.4
 annotated-types==0.7.0
@@ -89,4 +90,4 @@ uvicorn==0.40.0
 watchfiles==1.1.1
 websockets==15.0.1
 sentence-transformers==2.3.1
-torch==2.9.1
+torch==2.9.1+cpu
