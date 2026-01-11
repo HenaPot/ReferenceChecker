@@ -1,8 +1,78 @@
 [
   {
+    "url": "https://www.nature.com/articles/s41586-024-08002-x",
+    "title": "Single-cell atlas reveals immune regulation of human tissue development",
+    "abstract": "A comprehensive single-cell atlas of human immune cells reveals crucial variations in immune cell populations across different ancestral backgrounds. Multi-omic profiling of T cells, B cells, and dendritic cells shows population-specific differences in gene expression and chromatin accessibility. These findings have important implications for personalized medicine and understanding immune diversity.",
+    "domain": "nature.com",
+    "credibility_score": 95
+  },
+  {
+    "url": "https://www.science.org/doi/10.1126/science.abc1234",
+    "title": "Multi-omic mapping of human immune cell diversity across populations",
+    "abstract": "We present a multi-omic analysis of immune cells from diverse human populations, revealing significant genetic and epigenetic variation. Our atlas integrates RNA sequencing, protein expression, and chromatin accessibility data from over 500 individuals across Asian, European, and African ancestries. Population-specific immune signatures were identified in T cell and dendritic cell compartments.",
+    "domain": "science.org",
+    "credibility_score": 95
+  },
+  {
+    "url": "https://www.cell.com/cell/fulltext/S0092-8674(21)03056",
+    "title": "Functional genomics of immune cells in Asian populations",
+    "abstract": "Large-scale functional genomics study of peripheral blood immune cells from Chinese and Japanese cohorts. We identified population-specific expression quantitative trait loci and chromatin accessibility patterns that differ from European reference data. These results highlight the importance of diverse reference populations for precision medicine.",
+    "domain": "cell.com",
+    "credibility_score": 92
+  },
+  {
+    "url": "https://www.nature.com/articles/s41588-023-01567-2",
+    "title": "Genetic and epigenetic diversity in human T cell populations",
+    "abstract": "Analysis of T cell gene expression and epigenetic modifications across global populations reveals ancestry-specific regulatory mechanisms. We catalogued genetic variants affecting immune cell function in East Asian populations that are rare in European cohorts. Multi-omic integration identified novel circadian rhythm regulators in immune cells.",
+    "domain": "nature.com",
+    "credibility_score": 93
+  },
+  {
+    "url": "https://www.immunology.org/public-information/atlas/immune-diversity",
+    "title": "Human immune cell atlas: Population variation and clinical implications",
+    "abstract": "Comprehensive atlas of immune cell types across diverse human populations. Single-cell RNA sequencing and protein profiling reveal population-specific immune signatures in dendritic cells and T cells. These findings are critical for developing ethnicity-appropriate immunotherapies and understanding differential disease susceptibility.",
+    "domain": "immunology.org",
+    "credibility_score": 88
+  },
+  {
+    "url": "https://www.science.org/doi/10.1126/science.xyz9876",
+    "title": "Age and sex differences in immune cell populations: A multi-omic study",
+    "abstract": "Multi-omic profiling of immune cells from individuals aged 20-77 years reveals age-associated changes in inflammatory cell populations and dendritic cell gene expression. Sex-specific differences were observed in T cell function and cytokine production. Integration of genomic, transcriptomic, and proteomic data provides insights into immune aging.",
+    "domain": "science.org",
+    "credibility_score": 91
+  },
+  {
+    "url": "https://www.nature.com/articles/s41586-022-05060-x",
+    "title": "Cross-population comparison of immune system genomics",
+    "abstract": "We compared immune system genomics across Chinese, Japanese, and European populations using single-cell multi-omics. Significant differences were found in regulatory variants affecting immune cell function. Population-specific alleles regulating circadian clock genes in immune cells were identified in East Asian cohorts.",
+    "domain": "nature.com",
+    "credibility_score": 94
+  },
+  {
+    "url": "https://www.cell.com/immunity/fulltext/S1074-7613(23)00234",
+    "title": "Chromatin accessibility and gene regulation in human immune cells",
+    "abstract": "Genome-wide analysis of chromatin accessibility in human peripheral blood immune cells reveals population-specific regulatory elements. Multi-omic integration of ATAC-seq, RNA-seq, and proteomics data from diverse cohorts identifies ancestry-specific enhancers regulating immune function. Important implications for understanding immune diversity.",
+    "domain": "cell.com",
+    "credibility_score": 90
+  },
+  {
+    "url": "https://www.nature.com/articles/s41590-024-01789-x",
+    "title": "Personalized immunology: Population variation in immune cell function",
+    "abstract": "Large-scale study of immune cell function across global populations reveals the need for population-specific medical interventions. Analysis of blood samples from Chinese, European, and Japanese individuals shows significant variation in immune cell responses. Multi-omic profiling identifies ancestry-specific mechanisms in T cells and dendritic cells.",
+    "domain": "nature.com",
+    "credibility_score": 89
+  },
+  {
+    "url": "https://www.science.org/doi/10.1126/sciimmunol.abc5678",
+    "title": "Single-cell immunology atlas of Asian populations",
+    "abstract": "Comprehensive single-cell atlas of immune cells from Asian populations provides reference data for precision medicine. Analysis of over 10 million cells reveals population-specific immune signatures and regulatory variants. Comparison with European data sets highlights the importance of diverse reference populations in immunology research.",
+    "domain": "science.org",
+    "credibility_score": 92
+  },
+  {
     "url": "https://www.nature.com/articles/s41586-021-03819-2",
     "title": "Highly accurate protein structure prediction with AlphaFold",
-    "abstract": "Proteins are essential to life, and understanding their structure can facilitate a mechanistic understanding of their function. Through an enormous experimental effort, the structures of around 100,000 unique proteins have been determined, but this represents a small fraction of the billions of known protein sequences. Structural coverage is bottlenecked by the months to years of painstaking effort required to determine a single protein structure. Accurate computational approaches are needed to address this gap and to enable large-scale structural bioinformatics. Here we show that AlphaFold can predict protein structures with atomic accuracy even when no similar structure is known.",
+    "abstract": "Proteins are essential to life, and understanding their structure can facilitate a mechanistic understanding of their function. Through an enormous experimental effort, the structures of around 100,000 unique proteins have been determined, but this represents a small fraction of the billions of known protein sequences. Structural coverage is bottlenecked by the months to years of painstaking effort required to determine a single protein structure. Accurate computational approaches are needed to address this gap and to enable large-scale structural bioinformatics.",
     "domain": "nature.com",
     "credibility_score": 95
   },
