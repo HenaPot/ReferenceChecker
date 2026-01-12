@@ -17,7 +17,6 @@ export default function HistoryPage() {
   const fetchHistory = async () => {
     try {
       const response = await referenceAPI.getHistory();
-      console.log('History API response:', response.data); // Debug log
       
       const data = Array.isArray(response.data) 
         ? response.data 

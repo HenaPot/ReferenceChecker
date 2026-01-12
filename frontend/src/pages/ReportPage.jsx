@@ -1,6 +1,6 @@
 // File: frontend/src/pages/ReportPage.jsx
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { referenceAPI } from '../services/api';
 import { ArrowLeft, RefreshCw, Loader, AlertTriangle, CheckCircle } from 'lucide-react';
@@ -16,28 +16,41 @@ export default function ReportPage() {
   const [error, setError] = useState('');
   const [reanalyzing, setReanalyzing] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  
+  const isMounted = useRef(true);
+  const successTimeoutRef = useRef(null);
 
   useEffect(() => {
+    isMounted.current = true;
     fetchReport();
     
-    // Poll for updates if still processing
     const interval = setInterval(() => {
       if (data?.reference?.status === 'processing') {
         fetchReport();
       }
     }, 3000);
 
-    return () => clearInterval(interval);
+    return () => {
+      isMounted.current = false;
+      clearInterval(interval);
+      if (successTimeoutRef.current) {
+        clearTimeout(successTimeoutRef.current);
+      }
+    };
   }, [id]);
 
   const fetchReport = async () => {
     try {
       const response = await referenceAPI.getReference(id);
-      setData(response.data);
-      setLoading(false);
+      if (isMounted.current) {
+        setData(response.data);
+        setLoading(false);
+      }
     } catch (err) {
-      setError('Failed to load report');
-      setLoading(false);
+      if (isMounted.current) {
+        setError('Failed to load report');
+        setLoading(false);
+      }
     }
   };
 
@@ -52,30 +65,50 @@ export default function ReportPage() {
       await new Promise(resolve => setTimeout(resolve, 2000));
       
       let attempts = 0;
-      const maxAttempts = 15; // 15 seconds max
+      const maxAttempts = 15;
       
       const pollForResults = async () => {
-        const response = await referenceAPI.getReference(id);
-        
-        if (response.data.reference.status === 'processing' && attempts < maxAttempts) {
-          attempts++;
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          return pollForResults();
+        try {
+          const response = await referenceAPI.getReference(id);
+          
+          if (response.data.reference.status === 'processing' && attempts < maxAttempts) {
+            attempts++;
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            return pollForResults();
+          }
+          
+          if (isMounted.current) {
+            setData(response.data);
+          }
+          
+        } catch (pollError) {
+          console.error('Polling error:', pollError);
+          if (isMounted.current) {
+            setError('Analysis may still be in progress. Please refresh.');
+          }
         }
-        
-        setData(response.data);
       };
       
       await pollForResults();
       
-      setShowSuccessMessage(true);
-      setTimeout(() => setShowSuccessMessage(false), 3000);
+      if (isMounted.current) {
+        setShowSuccessMessage(true);
+        successTimeoutRef.current = setTimeout(() => {
+          if (isMounted.current) {
+            setShowSuccessMessage(false);
+          }
+        }, 3000);
+      }
       
     } catch (err) {
-      setError('Failed to reanalyze. Please try again.');
-      console.error('Reanalyze error:', err);
+      if (isMounted.current) {
+        setError('Failed to reanalyze. Please try again.');
+        console.error('Reanalyze error:', err);
+      }
     } finally {
-      setReanalyzing(false);
+      if (isMounted.current) {
+        setReanalyzing(false);
+      }
     }
   };
 
@@ -116,7 +149,7 @@ export default function ReportPage() {
               : 'We\'re analyzing this reference. This usually takes 10-15 seconds...'}
           </p>
           
-          {/* Progress indicator */}
+          {/* Progress indicator - indeterminate */}
           <div className="max-w-md mx-auto mt-6">
             <div className="flex items-center justify-between text-sm text-gray-600 mb-2">
               <span>Analyzing domain</span>
@@ -124,7 +157,7 @@ export default function ReportPage() {
               <span>AI analysis</span>
             </div>
             <div className="w-full bg-blue-200 rounded-full h-2">
-              <div className="bg-blue-600 h-2 rounded-full animate-pulse" style={{width: '60%'}}></div>
+              <div className="bg-blue-600 h-2 rounded-full w-full animate-pulse"></div>
             </div>
           </div>
         </div>
