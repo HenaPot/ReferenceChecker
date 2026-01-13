@@ -3,11 +3,12 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { referenceAPI } from '../services/api';
-import { ExternalLink, Trash2, Loader } from 'lucide-react';
+import { ExternalLink, Trash2, Loader, AlertTriangle } from 'lucide-react';
 
 export default function HistoryPage() {
   const [references, setReferences] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     fetchHistory();
@@ -16,10 +17,18 @@ export default function HistoryPage() {
   const fetchHistory = async () => {
     try {
       const response = await referenceAPI.getHistory();
-      setReferences(response.data);
-      setLoading(false);
+      
+      const data = Array.isArray(response.data) 
+        ? response.data 
+        : response.data.references || [];
+      
+      setReferences(data);
+      setError('');
     } catch (err) {
       console.error('Failed to load history', err);
+      setError('Failed to load reference history');
+      setReferences([]);
+    } finally {
       setLoading(false);
     }
   };
@@ -47,6 +56,23 @@ export default function HistoryPage() {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="flex items-center justify-center h-64">
           <Loader className="h-12 w-12 text-primary-600 animate-spin" />
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="bg-red-50 border border-red-200 rounded-lg p-8 text-center">
+          <AlertTriangle className="h-12 w-12 text-red-600 mx-auto mb-4" />
+          <p className="text-red-600 font-medium mb-4">{error}</p>
+          <button
+            onClick={fetchHistory}
+            className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700"
+          >
+            Try Again
+          </button>
         </div>
       </div>
     );

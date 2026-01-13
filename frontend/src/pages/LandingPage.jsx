@@ -1,4 +1,5 @@
 // File: frontend/src/pages/LandingPage.jsx
+// CLEANED VERSION - Redirect logic moved to App.jsx
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -12,14 +13,8 @@ export default function LandingPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   
-  const { login, register, isAuthenticated } = useAuth();
+  const { login, register } = useAuth();
   const navigate = useNavigate();
-
-  // Redirect if already logged in
-  if (isAuthenticated) {
-    navigate('/check');
-    return null;
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();

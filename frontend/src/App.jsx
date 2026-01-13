@@ -22,29 +22,35 @@ function App() {
         <Navigation />
         
         <Routes>
-          {/* Public route */}
-          <Route path="/" element={<LandingPage />} />
+          {/* Public route - redirect authenticated users to /check */}
+          <Route 
+            path="/" 
+            element={isAuthenticated ? <Navigate to="/check" replace /> : <LandingPage />} 
+          />
           
           {/* Protected routes */}
           <Route 
             path="/check" 
-            element={isAuthenticated ? <CheckReferencePage /> : <Navigate to="/" />} 
+            element={isAuthenticated ? <CheckReferencePage /> : <Navigate to="/" replace />} 
           />
           <Route 
             path="/report/:id" 
-            element={isAuthenticated ? <ReportPage /> : <Navigate to="/" />} 
+            element={isAuthenticated ? <ReportPage /> : <Navigate to="/" replace />} 
           />
           <Route 
             path="/history" 
-            element={isAuthenticated ? <HistoryPage /> : <Navigate to="/" />} 
+            element={isAuthenticated ? <HistoryPage /> : <Navigate to="/" replace />} 
           />
           <Route 
             path="/profile" 
-            element={isAuthenticated ? <ProfilePage /> : <Navigate to="/" />} 
+            element={isAuthenticated ? <ProfilePage /> : <Navigate to="/" replace />} 
           />
           
-          {/* Catch all */}
-          <Route path="*" element={<Navigate to="/" />} />
+          {/* Catch all - redirect to appropriate page based on auth */}
+          <Route 
+            path="*" 
+            element={<Navigate to={isAuthenticated ? "/check" : "/"} replace />} 
+          />
         </Routes>
       </div>
     </BrowserRouter>
