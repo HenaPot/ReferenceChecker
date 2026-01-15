@@ -61,9 +61,16 @@ class WebScraperService:
         """Extract title from page."""
         # Try ScienceDirect specific selector FIRST
         if 'sciencedirect.com' in url:
-            title_span = soup.find('span', class_='title-text')
-            if title_span:
-                return title_span.get_text().strip()
+            # Find h1 with id="screen-reader-main-title" or class containing "Head"
+            title_h1 = soup.find('h1', id='screen-reader-main-title')
+            if not title_h1:
+                title_h1 = soup.find('h1', class_=lambda x: x and 'Head' in x)
+            
+            if title_h1:
+                # Look for span with class="title-text" inside the h1
+                title_span = title_h1.find('span', class_='title-text')
+                if title_span:
+                    return title_span.get_text().strip()
         
         # Try Open Graph tag
         og_title = soup.find('meta', property='og:title')
