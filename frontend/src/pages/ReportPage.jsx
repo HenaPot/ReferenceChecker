@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { referenceAPI } from '../services/api';
-import { ArrowLeft, RefreshCw, Loader, AlertTriangle, CheckCircle } from 'lucide-react';
+import { ArrowLeft, RefreshCw, Loader, AlertTriangle, CheckCircle, FileText, User, Calendar, Globe } from 'lucide-react';
 
 import CredibilityGauge from '../components/CredibilityGauge';
 import ScoreBreakdown from '../components/ScoreBreakdown';
@@ -149,7 +149,6 @@ export default function ReportPage() {
               : 'We\'re analyzing this reference. This usually takes 10-15 seconds...'}
           </p>
           
-          {/* Progress indicator - indeterminate */}
           <div className="max-w-md mx-auto mt-6">
             <div className="flex items-center justify-between text-sm text-gray-600 mb-2">
               <span>Analyzing domain</span>
@@ -195,7 +194,7 @@ export default function ReportPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      {/* Success message after reanalysis */}
+      {/* Success message */}
       {showSuccessMessage && (
         <div className="fixed top-20 right-4 z-50 bg-green-50 border border-green-200 rounded-lg p-4 shadow-lg flex items-center space-x-3 animate-fade-in">
           <CheckCircle className="h-5 w-5 text-green-600" />
@@ -218,10 +217,9 @@ export default function ReportPage() {
           Back to History
         </Link>
         
-        <div className="flex justify-between items-start">
+        <div className="flex justify-between items-start mb-6">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Credibility Report</h1>
-            <p className="text-gray-600 break-all">{reference.url}</p>
             <p className="text-sm text-gray-500 mt-1">
               Analyzed on {new Date(reference.created_at).toLocaleDateString()}
             </p>
@@ -235,6 +233,76 @@ export default function ReportPage() {
             <RefreshCw className={`h-4 w-4 ${reanalyzing ? 'animate-spin' : ''}`} />
             <span>{reanalyzing ? 'Analyzing...' : 'Reanalyze'}</span>
           </button>
+        </div>
+
+        {/* Metadata Card */}
+        <div className="bg-white rounded-lg shadow p-6 mb-6 border border-gray-200">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+            <FileText className="h-5 w-5 mr-2 text-primary-600" />
+            Reference Metadata
+          </h3>
+          
+          <div className="space-y-3">
+            {/* Title */}
+            {reference.title && (
+              <div className="flex items-start">
+                <FileText className="h-5 w-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Title</p>
+                  <p className="text-sm text-gray-900 mt-1">{reference.title}</p>
+                </div>
+              </div>
+            )}
+            
+            {/* Author */}
+            {reference.author && (
+              <div className="flex items-start">
+                <User className="h-5 w-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Author(s)</p>
+                  <p className="text-sm text-gray-900 mt-1">{reference.author}</p>
+                </div>
+              </div>
+            )}
+            
+            {/* Domain */}
+            <div className="flex items-start">
+              <Globe className="h-5 w-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Domain</p>
+                <p className="text-sm text-gray-900 mt-1">{reference.domain}</p>
+              </div>
+            </div>
+            
+            {/* URL */}
+            <div className="flex items-start">
+              <Globe className="h-5 w-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" />
+              <div className="flex-1">
+                <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">URL</p>
+                <a 
+                  href={reference.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm text-primary-600 hover:text-primary-700 hover:underline mt-1 break-all inline-block"
+                >
+                  {reference.url}
+                </a>
+              </div>
+            </div>
+
+            {/* Publication Date (if available) */}
+            {reference.publication_date && (
+              <div className="flex items-start">
+                <Calendar className="h-5 w-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Publication Date</p>
+                  <p className="text-sm text-gray-900 mt-1">
+                    {new Date(reference.publication_date).toLocaleDateString()}
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

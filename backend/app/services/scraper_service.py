@@ -42,7 +42,7 @@ class WebScraperService:
                 # Extract metadata
                 metadata = {
                     'title': self._extract_title(soup, url),
-                    'author': self._extract_author(soup),
+                    'author': self._extract_author(soup, url),
                     'publication_date': self._extract_date(soup)
                 }
                 
@@ -59,6 +59,12 @@ class WebScraperService:
     
     def _extract_title(self, soup: BeautifulSoup, url: str) -> Optional[str]:
         """Extract title from page."""
+        # Try ScienceDirect specific selector FIRST
+        if 'sciencedirect.com' in url:
+            title_span = soup.find('span', class_='title-text')
+            if title_span:
+                return title_span.get_text().strip()
+        
         # Try Open Graph tag
         og_title = soup.find('meta', property='og:title')
         if og_title and og_title.get('content'):
@@ -74,7 +80,7 @@ class WebScraperService:
         if title_tag and title_tag.string:
             title = title_tag.string.strip()
             # Clean up common suffixes
-            title = re.sub(r'\s*[\|\-]\s*(Nature|arXiv|Science|PLOS|.*)\s*$', '', title)
+            title = re.sub(r'\s*[\|\-]\s*(Nature|arXiv|Science|PLOS|ScienceDirect|.*)\s*$', '', title)
             return title
         
         # Try h1 as fallback
@@ -84,8 +90,35 @@ class WebScraperService:
         
         return None
     
-    def _extract_author(self, soup: BeautifulSoup) -> Optional[str]:
+    def _extract_author(self, soup: BeautifulSoup, url: str) -> Optional[str]:
         """Extract author from page."""
+        # Try ScienceDirect specific selector FIRST
+        if 'sciencedirect.com' in url:
+            authors = []
+            
+            # Find the AuthorGroups div
+            author_groups = soup.find('div', class_='AuthorGroups')
+            if author_groups:
+                # Find all author buttons
+                author_buttons = author_groups.find_all('button', class_='button-link')
+                
+                for button in author_buttons:
+                    # Extract given name and surname
+                    given_name = button.find('span', class_='given-name')
+                    surname = button.find('span', class_='surname')
+                    
+                    if given_name and surname:
+                        full_name = f"{given_name.get_text().strip()} {surname.get_text().strip()}"
+                        authors.append(full_name)
+                
+                # Return comma-separated list of authors
+                if authors:
+                    # Return first 3 authors + "et al." if more than 3
+                    if len(authors) > 3:
+                        return ', '.join(authors[:3]) + ' et al.'
+                    else:
+                        return ', '.join(authors)
+        
         # Try meta author tag
         meta_author = soup.find('meta', attrs={'name': 'author'})
         if meta_author and meta_author.get('content'):
